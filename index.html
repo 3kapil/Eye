@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EyeFrame</title>
+    <link rel="icon" href="./android-chrome-192x192.png" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="main">
+      <!-- this is navbar section  -->
+      <nav>
+        <img src="./android-chrome-512x512.png" alt="" />
+        <div class="nav-item">
+          <h3>EN</h3>
+          <h3>RU</h3>
+          <h3>Country:Russia</h3>
+          <h3>Profile</h3>
+          <h3>Wishlist(0)</h3>
+        </div>
+      </nav>
+
+      <!-- this is second navbar section -->
+      <div id="menu">
+        <h3>SUN</h3>
+        <h3>OPTICAL</h3>
+        <h3>COLLECTIONS</h3>
+        <h3>STUDIO</h3>
+        <h3>ABOUT</h3>
+        <h3>SHOPS</h3>
+        <h3>JOURNAL</h3>
+      </div>ip
+
+      <div id="center">
+        <div id="scroll">
+          <div class="scroll-text">
+            <h2>Lifestyle</h2>
+          </div>
+          <div class="scroll-text">
+            <h2>Trendline</h2>
+          </div>
+          <div class="scroll-text">
+            <h2>Premium</h2>
+          </div>
+          <div class="scroll-text">
+            <h2>Stylish</h2>
+          </div>
+        </div>
+        <div id="down-image">
+            <img src="./Images/pexels-elle-hughes-1680172.jpg" alt="">
+            <img src="./Images/pexels-the-lazy-artist-gallery-1223343.jpg" alt="">
+            <img src=".//Images/pexels-godisable-jacob-871495.jpg" alt="">
+            <img src=".//Images//pexels-daniel-xavier-1239291.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let mouseDown = false;
+let startX, scrollLeft;
+const slider = document.querySelector('#scroll');
+
+const startDragging = (e) => {
+  mouseDown = true;
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+}
+
+const stopDragging = (e) => {
+  mouseDown = false;
+}
+
+const move = (e) => {
+  e.preventDefault();
+  if(!mouseDown) { return; }
+  const x = e.pageX - slider.offsetLeft;
+  const scroll = x - startX;
+  slider.scrollLeft = scrollLeft - scroll;
+}
+
+// Add the event listeners
+slider.addEventListener('mousemove', move, false);
+slider.addEventListener('mousedown', startDragging, false);
+slider.addEventListener('mouseup', stopDragging, false);
+slider.addEventListener('mouseleave', stopDragging, false);
+
+
+// scrolling image   
+
+let mouseDownl = false;
+let startXl, scrollLeftl;
+const sliderl = document.querySelector('#down-image');
+
+const startDraggingl = (e) => {
+  mouseDownl = true;
+  startXl = e.pageX - slider.offsetLeft;
+  scrollLeftl = sliderl.scrollLeft;
+}
+
+const stopDraggingl = (e) => {
+  mouseDownl = false;
+}
+
+const movel = (e) => {
+  e.preventDefault();
+  if(!mouseDownl) { return; }
+  const xl = e.pageX - slider.offsetLeft;
+  const scrolll = xl - startXl;
+  sliderl.scrollLeft = scrollLeftl - scrolll;
+}
+
+// Add the event listeners
+sliderl.addEventListener('mousemove', movel, false);
+sliderl.addEventListener('mousedown', startDraggingl, false);
+sliderl.addEventListener('mouseup', stopDraggingl, false);
+sliderl.addEventListener('mouseleave', stopDraggingl, false);
+  </script>
+</html>
